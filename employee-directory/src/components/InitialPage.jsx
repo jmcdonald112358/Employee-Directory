@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import API from "../utils/API";
 import Header from './Header';
 import EmpCard from './EmpCard';
@@ -59,18 +61,18 @@ class InitialPage extends Component {
 
    render() {
       return (
-         <div className="container">
+         <Container>
             {/* header */}
-            <div className="row">
+            <Row>
                <h1>Employee Directory</h1>
                <Header />
-            </div>
+            </Row>
 
             {/* main table to display employee cards */}
-            <div className="row">
+            <Row>
                <EmpCard />
-            </div>
-         </div>
+            </Row>
+         </Container>
       )
    }
 };
