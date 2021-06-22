@@ -16,7 +16,7 @@ class InitialPage extends Component {
 
    //run API call
    componentDidMount() {
-      API.search()
+      API.getRandomUser()
       .then(res => {
          console.log(res);
          this.setState({
@@ -47,7 +47,7 @@ class InitialPage extends Component {
    //update state for input
    input = (x) => {
       this.setState({
-         [x.target.name]: x.target.value
+         [x.target.name]: x.target.value,
       });
       console.log(this.state.search);
    }
@@ -63,18 +63,32 @@ class InitialPage extends Component {
       return (
          <Container>
             {/* header */}
-            <Row>
-               <h1>Employee Directory</h1>
-               <Header />
+            <Row className="justify-content-center">
+               <h1 className="my-4 text-center">Employee Directory</h1>
+               <Header 
+                  value={this.state.search}
+                  input={this.input}
+                  btnSubmit={this.btnSubmit}
+               />
             </Row>
 
             {/* main table to display employee cards */}
-            <Row>
-               <EmpCard />
+            <Row className="justify-content-center">
+               {[...this.state.employees].map((x) => (
+                  <EmpCard 
+                     photo={x.photo}
+                     givenName={x.givenName}
+                     familyName={x.familyName}
+                     email={x.email}
+                     phone={x.phone}
+                     city={x.city}
+                     key={x.key}
+                  />
+               ))};
             </Row>
          </Container>
-      )
-   }
+      );
+   };
 };
 
 export default InitialPage;
