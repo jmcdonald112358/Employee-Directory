@@ -47,7 +47,7 @@ class InitialPage extends Component {
    //update state for input
    input = (x) => {
       this.setState({
-         [x.target.name]: x.target.value,
+         search: x.target.value,
       });
       console.log(this.state.search);
    }
