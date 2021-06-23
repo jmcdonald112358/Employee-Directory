@@ -18,7 +18,6 @@ class InitialPage extends Component {
    componentDidMount() {
       API.getRandomUser()
       .then(res => {
-         console.log(res);
          this.setState({
             employees: res.data.results.map((x, i) => ({
                givenName: x.name.first,
@@ -36,7 +35,6 @@ class InitialPage extends Component {
 
    //function to search employees for existing entries and update list
    empSearch = (filter) => {
-      console.log('Search', filter);
       const filtered = this.state.employees.filter((emp) => {
          let values = Object.values(emp).join('').toLowerCase();
          return values.indexOf(filter.toLowerCase()) !== -1;
@@ -49,13 +47,11 @@ class InitialPage extends Component {
       this.setState({
          search: x.target.value,
       });
-      console.log(this.state.search);
    }
 
    //search function for submit button
    btnSubmit = (x) => {
       x.preventDefault();
-      console.log(this.state.search, x);
       this.empSearch(this.state.search);
    };
 
