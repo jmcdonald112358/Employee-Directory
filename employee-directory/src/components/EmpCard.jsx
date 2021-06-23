@@ -9,11 +9,6 @@ function EmpCard(props) {
          <Card.Img variant="top" src={props.photo} />
          <Card.Body>
             <Card.Title>{props.givenName} {props.familyName}</Card.Title>
-            {/* <Card.Text>
-               Email: {props.email}
-               Phone: {props.phone}
-               City: {props.city}
-            </Card.Text> */}
          </Card.Body>
          <ListGroup className="list-group-flush" horizontal="true">
             <ListGroup.Item>Email: {props.email}</ListGroup.Item>
