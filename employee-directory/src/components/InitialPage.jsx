@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import API from "../utils/API";
 import Header from './Header';
 import EmpCard from './EmpCard';
+import Footer from "./Footer";
 
 class InitialPage extends Component {
    //set initial state to store relevant info
@@ -81,6 +82,7 @@ class InitialPage extends Component {
                      key={x.key}
                   />
                ))};
+            <Footer />
             </Row>
          </Container>
       );
